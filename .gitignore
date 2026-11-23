@@ -1,0 +1,22 @@
+# 環境変数・秘密情報
+.env
+.env.*
+!.env.example
+!*.sql
+*.sql.gz
+*.sql.zip
+*.log
+*.bak
+*.zip
+*.swp
+*.swo
+*.swx
+.DS_Store
+__MACOSX/
+
+!docker/mysql/init/01-recocon-schema.sql
+!docker/mysql/init/02-recocon-seed.sql
+
+/app/PHP/LogWriting/RecoCon_Log/*
+!/app/PHP/LogWriting/RecoCon_Log/.gitkeep
+!/app/PHP/LogWriting/RecoCon_Log/.htaccess

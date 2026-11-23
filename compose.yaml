@@ -1,0 +1,60 @@
+name: recocon-dev
+services:
+  web:
+    build:
+      # contextはcdのようなもの。これによりcompose.yamlのいるディレクトリ基準で以下を記述できる。
+      context: .
+      dockerfile: docker/php/Dockerfile
+      args:
+        PHP_VERSION: ${PHP_VERSION:-8.3}
+    # 127.0.0.1はUbuntuのループバック。8088はUbuntu側の公開ポート。80はWebコンテナ側の公開ポート（Apacheが待受）。
+    ports:
+      - "127.0.0.1:${RECOCON_HTTP_PORT:-8088}:80"
+    # ホストの./app以下を、webコンテナの/var/www/htmlとして共有する。
+    # バインドマウント。下の名前付きの永続化volumeと似ているので注意。
+    volumes:
+      - ./app:/var/www/html
+    # .env → compose.yaml → コンテナの環境変数 → PHPのgetenv()という流れ。
+    environment:   
+      RECOCON_DB_HOST: db
+      RECOCON_DB_NAME: ${DB_NAME:-recocon_dev}
+      RECOCON_DB_USER: ${DB_USER:-recocon_dev}
+      RECOCON_DB_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD must be set in .env}
+      RECOCON_MAIL_FROM: ${RECOCON_MAIL_FROM:?RECOCON_MAIL_FROM must be set in .env}
+    # webの起動順はdb、mailpitのあと。
+    depends_on:
+      - db
+      - mailpit
+    restart: unless-stopped
+
+  db:
+    # 本番はMySQL 8.0.35。開発用には同じ8.0系の最終版を使用（8.0はEOL）
+    image: ${DB_IMAGE:-mysql:8.0.46}
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-recocon_dev}
+      MYSQL_USER: ${DB_USER:-recocon_dev}
+      MYSQL_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD must be set in .env}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?DB_ROOT_PASSWORD must be set in .env}
+    # 下で定義した名前付永続化ボリュームをdbコンテナの/var/lib/mysqlにマウント。
+    # これで、dbコンテナの/var/lib/mysqlに保存すると、実際にはrecocon_db_dataに保存されるようになる。
+    volumes:
+      - recocon_db_data:/var/lib/mysql
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d:ro
+    restart: unless-stopped
+    # DBポートはホストに公開しない → ports:は書かない
+
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "127.0.0.1:${MAILPIT_UI_PORT:-8025}:8025"
+    restart: unless-stopped
+    # Mailpitは外部へメールを転送しない
+
+volumes:
+  # Dockerが管理する永続的保存領域である永続化ボリューム「recocon_db_data」を宣言。
+  # ボリュームという名前だが、ディスクを作っているわけではなく、Dockerが管理するディレクトリを作っている。
+  # だから、これは可変容量のボリュームと言うことができる。
+  # コンテナを削除してもこれは消えないので、コンテナを再作成してもDB内の情報が消えないようにできる。
+  # 実際の名前は、プロジェクト名がついて、「recocon-dev_recocon_db_data」となる。
+  # 標準的なDocker構成なら、実際のパスは「/var/lib/docker/volumes/recocon-dev_recocon_db_data」
+  recocon_db_data:

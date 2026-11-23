@@ -1,0 +1,1483 @@
+@charset "UTF-8";
+/* <<< 目 次 >>> ---------------------------------------------------------
+
+< 要素 > 
+範囲が広  強さが弱
+
+< class > 
+範囲が中  強さが中
+
+< id > 
+範囲が狭  強さが強
+
+*/
+/* SASS mixin デスクトップ */
+/* varで呼び出す定数  ------------------------------------------------------------  */
+:root {
+  --main-font-size_h1: 15px;
+  --main-font-size_h2: 13px;
+  --main-font-size_h3: 12px;
+  --main-font-size_p: 11px;
+  --main-font-size_small: 9px;
+  --main-color-perple: rgb(116, 100, 235);
+  --main-color-pink: rgb(250, 100, 174);
+  --main-color-water: rgb(78, 149, 250);
+  --main-color-glay: rgb(240, 240, 240);
+  --noble-style: 1;
+}
+@media (min-width: 420px) {
+  :root {
+    --main-font-size_h1: 18px;
+    --main-font-size_h2: 16px;
+    --main-font-size_h3: 14px;
+    --main-font-size_p: 13px;
+    --main-font-size_small: 12px;
+  }
+}
+
+/* 共通  ------------------------------------------------------------  */
+/* 要素  ------------------------------------------------------------  */
+body {
+  background-color: var(--main-color-glay);
+}
+
+h1 {
+  font-size: var(--main-font-size_h1);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 600;
+  color: white;
+  line-height: auto;
+}
+
+h2 {
+  font-size: var(--main-font-size_h2);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 600;
+  line-height: auto;
+}
+
+h3 {
+  font-size: var(--main-font-size_h3);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 600;
+  line-height: auto;
+}
+
+p {
+  font-size: var(--main-font-size_p);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 400;
+  line-height: auto;
+}
+
+small {
+  font-size: var(--main-font-size_small);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 400;
+  line-height: auto;
+}
+
+input {
+  width: calc(100vw*0.7);
+  background-color: var(--main-color-glay);
+  display: block;
+  margin: 0 auto;
+  padding: 8px;
+  border-radius: 5.5px;
+  font-size: var(--main-font-size_h3);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 400;
+  line-height: auto;
+}
+@media (min-width: 420px) {
+  input {
+    max-width: 44vw;
+  }
+}
+
+textarea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: var(--main-font-size_h3);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 400;
+  line-height: auto;
+  padding: 5.5px;
+  text-align: justify;
+}
+
+button {
+  width: calc(100vw/1.618/1.618);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: var(--main-font-size_h3);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 400;
+  line-height: auto;
+}
+@media (min-width: 420px) {
+  button {
+    max-width: 11vw;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border: solid 0.2px #c0c0c0;
+}
+
+th {
+  border: solid 0.1px #c0c0c0;
+  background-color: #ddd;
+}
+
+td {
+  border: solid 0.1px #c0c0c0;
+  background-color: white;
+}
+
+#navi_arrow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 63.5px;
+}
+
+#header div a {
+  text-decoration: none;
+}
+
+#header a img {
+  vertical-align: top;
+}
+
+#header div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#header div div img {
+  cursor: pointer;
+  vertical-align: top;
+  margin-left: 5.5px;
+}
+
+/* class  ------------------------------------------------------------  */
+.flex_column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex_row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/*.ongen_grid {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr 1fr;
+   gap: 11px;
+   justify-items: center;
+   align-items: center;
+}*/
+.input_attension_space {
+  height: 77px;
+}
+@media (min-width: 420px) {
+  .input_attension_space {
+    height: 85px;
+  }
+}
+
+.button_perple {
+  background-color: var(--main-color-perple);
+  padding: 8px;
+  margin: 0 2.75px 5.5px 2.75px;
+  border-radius: 5.5px;
+}
+
+.button_water {
+  background-color: var(--main-color-water);
+  padding: 8px;
+  margin: 0 2.75px 5.5px 2.75px;
+  border-radius: 5.5px;
+}
+
+.button_pink {
+  background-color: var(--main-color-pink);
+  padding: 8px;
+  margin: 0 2.75px 5.5px 2.75px;
+  border-radius: 5.5px;
+}
+
+.button_glay {
+  background-color: #c0c0c0;
+  padding: 8px;
+  margin: 0 2.75px 5.5px 2.75px;
+  border-radius: 5.5px;
+}
+
+.button_glayout {
+  background-color: #ddd;
+  padding: 8px;
+  margin: 0 2.75px 5.5px 2.75px;
+  border-radius: 5.5px;
+}
+
+.color_perple {
+  color: var(--main-color-perple);
+}
+
+.color_water {
+  color: var(--main-color-water);
+}
+
+.color_pink {
+  color: var(--main-color-pink);
+}
+
+.color_white {
+  color: white;
+}
+
+.color_ddd {
+  color: #ddd;
+}
+
+.color_glay {
+  color: #c0c0c0;
+}
+
+.color_black {
+  color: black;
+}
+
+.title_from_navi {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  width: 100%;
+  height: 63.5px;
+  padding: 11px 11px;
+  border-width: 0 0 0.5px 0;
+  border-style: dashed;
+  border-color: #DDD;
+}
+
+.title_white {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background-color: white;
+  width: 100%;
+  height: 63.5px;
+  padding: 11px 11px;
+}
+
+.title_perple {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background-color: var(--main-color-perple);
+  width: 100%;
+  height: 63.5px;
+  padding: 11px 11px;
+}
+
+.title_pink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background-color: var(--main-color-pink);
+  width: 100%;
+  height: 63.5px;
+  padding: 11px 11px;
+}
+
+.title_water {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background-color: var(--main-color-water);
+  width: 100%;
+  height: 63.5px;
+  padding: 11px 11px;
+}
+
+.title_glay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 63.5px;
+  padding: 11px 11px;
+}
+
+.table_general {
+  width: calc(100vw * 0.9);
+}
+@media (min-width: 420px) {
+  .table_general {
+    width: 66vw;
+  }
+}
+
+.table_general tbody tr th {
+  width: 33vw;
+  font-size: var(--main-font-size_h3);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  padding: 11px;
+  color: black;
+}
+@media (min-width: 420px) {
+  .table_general tbody tr th {
+    width: 22vw;
+  }
+}
+
+.table_general tbody tr td {
+  font-size: var(--main-font-size_h3);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 400;
+  text-align: left;
+  padding: 11px;
+  color: black;
+}
+
+.backMark {
+  position: relative;
+  width: 100%;
+  height: calc(63.5px*1);
+  background-color: #f2f2f2;
+}
+
+.toTop {
+  position: absolute;
+  margin: -15.5px 0px 0px 50vw;
+  -webkit-transform: translateX(-15.5px);
+          transform: translateX(-15.5px);
+}
+
+.p_justify {
+  text-align: justify;
+}
+
+.p_center {
+  text-align: center;
+}
+
+.space_white {
+  background-color: white;
+  padding: 11px 11px 44px 11px;
+}
+
+.space_55px {
+  margin: 5.5px;
+}
+@media (min-width: 420px) {
+  .space_55px {
+    margin: 8.25;
+  }
+}
+
+.space_11px {
+  margin: 11px;
+}
+@media (min-width: 420px) {
+  .space_11px {
+    margin: 16.5px;
+  }
+}
+
+.space_22px {
+  margin: 22px;
+}
+@media (min-width: 420px) {
+  .space_22px {
+    margin: 33px;
+  }
+}
+
+.space_33px {
+  margin: 33px;
+}
+@media (min-width: 420px) {
+  .space_33px {
+    margin: 44.5px;
+  }
+}
+
+.space_44px {
+  margin: 44px;
+}
+@media (min-width: 420px) {
+  .space_44px {
+    margin: 66px;
+  }
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* id  ------------------------------------------------------------  */
+#header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 63.5px;
+  padding: 11px;
+  background-color: white;
+  border-width: 0 0 0.5px 0;
+  border-style: dashed;
+  border-color: #DDD;
+  -webkit-box-shadow: 0 5px 5px 0 var(--main-color-glay);
+          box-shadow: 0 5px 5px 0 var(--main-color-glay);
+}
+@media (min-width: 420px) {
+  #header {
+    padding: 11px 17vw;
+  }
+}
+
+#navi {
+  display: none;
+  background-color: white;
+}
+
+/*
+#next_concert_title_p {
+   position:absolute;
+   transform: translate(calc(16.5vw - 16px) ,-63px);
+}
+
+#next_concert_title_p img {
+   height: 70px;
+   filter: drop-shadow(0 5px 5px rgb(242,242,242));
+}
+*/
+#stay_tuned_title_p {
+  position: absolute;
+  -webkit-transform: translate(calc(83vw - 27px), -55px);
+          transform: translate(calc(83vw - 27px), -55px);
+}
+
+#stay_tuned_title_p img {
+  height: 64px;
+  -webkit-filter: drop-shadow(0 5px 5px #f2f2f2);
+          filter: drop-shadow(0 5px 5px #f2f2f2);
+}
+
+#close_title_p {
+  position: absolute;
+  -webkit-transform: translate(calc(16.5vw - 22px), -65px);
+          transform: translate(calc(16.5vw - 22px), -65px);
+}
+
+#close_title_p img {
+  height: 80px;
+  -webkit-filter: drop-shadow(0 5px 5px var(--main-color-glay));
+          filter: drop-shadow(0 5px 5px var(--main-color-glay));
+}
+
+/*
+#next_concert_title::before, #stay_tuned_title::before, #close_title::before {
+   content: url(../SVG/disc.gif);
+   display: inline-block;
+   vertical-align:top;
+   padding-top:3.5px;
+   padding-right:4px;
+}
+*/
+#next_concert_date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 63.5px;
+}
+
+#close1_div1_div1_div, #close2_div1_div1_div, #close3_div1_div1_div, #close4_div1_div1_div, #close5_div1_div1_div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#close_noble {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 63.5px;
+}
+
+#carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#carousel_view {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* トップページ  要素------------------------------------------------------------  */
+/* トップページ  class------------------------------------------------------------  */
+.navi {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  width: 100vw;
+  height: 63.5px;
+  padding: 11px 11px;
+  border-width: 0 0 0.5px 0;
+  border-style: dashed;
+  border-color: #DDD;
+  font-size: var(--main-font-size_h2);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 600;
+  color: var(--main-color-perple);
+  line-height: auto;
+  cursor: pointer;
+}
+@media (min-width: 420px) {
+  .navi {
+    width: calc(66vw / 3);
+  }
+}
+@media (min-width: 420px) {
+  .navi {
+    font-size: var(--main-font-size_h3);
+  }
+}
+
+.middle_p {
+  width: calc(100vw - (100vw / 1.618) - 11px);
+  height: calc(100vw - (100vw / 1.618) - 11px);
+  vertical-align: top;
+}
+@media (min-width: 420px) {
+  .middle_p {
+    max-width: calc((100vw / 3.5) - 11px);
+    max-height: calc((100vw / 3.5) - 11px);
+  }
+}
+
+.h2_little {
+  font-size: var(--main-font-size_small);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 600;
+  color: #744eeb;
+}
+
+.top_ErrorMessage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background-color: white;
+  width: 100%;
+  height: 63.5px;
+  border-width: 0 0 0.5px 0;
+  border-style: dashed;
+  border-color: #DDD;
+}
+
+.disc_info {
+  display: none;
+  padding: 22px 11px;
+  border-width: 0 0 0.5px 0;
+  border-style: dashed;
+  border-color: #DDD;
+}
+
+.carousel {
+  width: 153px;
+  height: 153px;
+  vertical-align: top;
+}
+
+.noble_cicle {
+  font-size: var(--main-font-size_h2);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 400;
+  color: #c0c0c0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  border: 0.5px solid #c0c0c0;
+  border-radius: 16px/16px;
+  margin: 0 5.5px 0 5.5px;
+  cursor: pointer;
+}
+@media (min-width: 420px) {
+  .noble_cicle {
+    width: 36px;
+    height: 36px;
+  }
+}
+@media (min-width: 420px) {
+  .noble_cicle {
+    border-radius: 18px/18px;
+  }
+}
+
+.noble_cicle:hover {
+  color: var(--main-color-perple);
+  border-color: var(--main-color-perple);
+  background-color: white;
+}
+
+.noble_cicle_on {
+  font-size: var(--main-font-size_h2);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 400;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: #c0c0c0;
+  border: 0.5px solid #c0c0c0;
+  border-radius: 16px/16px;
+  margin: 0 5.5px 0 5.5px;
+  cursor: pointer;
+}
+@media (min-width: 420px) {
+  .noble_cicle_on {
+    width: 36px;
+    height: 36px;
+  }
+}
+@media (min-width: 420px) {
+  .noble_cicle_on {
+    border-radius: 18px/18px;
+  }
+}
+
+/* トップページ  id------------------------------------------------------------  */
+#next_concert_title, #stay_tuned_title, #close_title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 39px;
+  line-height: 39px;
+  background-color: var(--main-color-perple);
+  margin-top: 63.5px;
+}
+
+#next_div1 {
+  background-color: white;
+  border-width: 0 0 0.5px 0;
+  border-style: dashed;
+  border-color: #DDD;
+}
+
+#kaisaibi, #kaijo, #kaien {
+  padding: 0.75px 5.5px 1.5px 5.5px;
+  border-width: 0.25px;
+  border-style: solid;
+  border-radius: 3px;
+  border-color: #744eeb;
+  margin: 0 5px 0 0;
+}
+
+#next_text_arrow, #stayTuned1_text_arrow, #stayTuned2_text_arrow, #close1_text_arrow, #close2_text_arrow, #close3_text_arrow, #close4_text_arrow, #close5_text_arrow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 63.5px;
+  background-color: white;
+  padding: 0px 11px;
+  border-width: 0 0 0.5px 0;
+  border-style: dashed;
+  border-color: #DDD;
+}
+@media (min-width: 420px) {
+  #next_text_arrow, #stayTuned1_text_arrow, #stayTuned2_text_arrow, #close1_text_arrow, #close2_text_arrow, #close3_text_arrow, #close4_text_arrow, #close5_text_arrow {
+    padding: 0px 17vw;
+  }
+}
+
+#next_div2, #stayTuned1_div2, #stayTuned2_div2, #close1_div2, #close2_div2, #close3_div2, #close4_div2, #close5_div2 {
+  padding: 0px 11px 11px 11px;
+  background-color: white;
+  border-width: 0 0 0.5px 0;
+  border-style: dashed;
+  border-color: #DDD;
+}
+@media (min-width: 420px) {
+  #next_div2, #stayTuned1_div2, #stayTuned2_div2, #close1_div2, #close2_div2, #close3_div2, #close4_div2, #close5_div2 {
+    padding: 0px 17vw 11px 17vw;
+  }
+}
+
+#next_div2_div1, #stayTuned1_div2_div1, #stayTuned2_div2_div1, #close1_div2_div1, #close2_div2_div1, #close3_div2_div1, #close4_div2_div1, #close5_div2_div1 {
+  padding-right: 11px;
+}
+
+/* 音源詳細  要素------------------------------------------------------------  */
+/* 音源詳細  class------------------------------------------------------------  */
+.ongen_photo_div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  border-width: 0 0 0.5px 0;
+  border-style: dashed;
+  border-color: #DDD;
+}
+
+.ongen_photo {
+  vertical-align: top;
+  width: calc(100%/1.618);
+  margin: 16.5px 16.5px;
+}
+@media (min-width: 420px) {
+  .ongen_photo {
+    max-width: 23vw;
+  }
+}
+
+#ongen_text_div {
+  background-color: white;
+  padding: 11px 11px 44px 11px;
+}
+@media (min-width: 420px) {
+  #ongen_text_div {
+    padding: 11px 27vw 44px 27vw;
+  }
+}
+
+.ongen_mark {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: var(--main-font-size_small);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 400;
+  color: #c0c0c0;
+  padding: 0.75px 5.5px 1.5px 5.5px;
+  border-width: 0.25px;
+  border-style: solid;
+  border-radius: 3px;
+  border-color: #c0c0c0;
+  margin: 0 5px 0 0;
+}
+
+.ongen_mark:hover {
+  color: white;
+  border-color: white;
+  background-color: var(--main-color-perple);
+}
+
+/* 音源詳細  id------------------------------------------------------------  */
+/* RecoConについて  要素------------------------------------------------------------  */
+/* RecoConについて  class------------------------------------------------------------  */
+/* RecoConについて  id------------------------------------------------------------  */
+#RecoConInfo_aisatsu {
+  background-color: white;
+}
+@media (min-width: 420px) {
+  #RecoConInfo_aisatsu {
+    padding: 0 27vw 22px 27vw;
+  }
+}
+
+#RecoConInfo_aisatsu_person, #RecoConInfo_aisatsu_disc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: calc(63.5px*2);
+  padding: 22px 11px 0px 11px;
+}
+
+#RecoConInfo_aisatsu_person_img, #RecoConInfo_aisatsu_disc_img {
+  width: calc(120vw/1.618/1.618/1.618/1.618/1.618);
+  min-width: 50px;
+  max-width: 63.5px;
+}
+@media (min-width: 420px) {
+  #RecoConInfo_aisatsu_person_img, #RecoConInfo_aisatsu_disc_img {
+    width: calc(120vw/1.618/1.618/1.618/1.618/1.618/1.618/1.618);
+  }
+}
+
+#RecoConInfo_aisatsu_p {
+  padding: 11px 11px 22px 11px;
+  text-align: justify;
+}
+@media (min-width: 420px) {
+  #RecoConInfo_aisatsu_p {
+    text-align: center;
+  }
+}
+
+@media (min-width: 420px) {
+  #RecoConInfo_kizai {
+    padding: 0 27vw;
+    margin: 22px 0 44px 0;
+  }
+}
+
+#RecoConInfo_kizai div:nth-child(2) {
+  padding: 5.5px 11px 0 11px;
+}
+@media (min-width: 420px) {
+  #RecoConInfo_kizai div:nth-child(2) {
+    padding: 5.5px 0 0 0;
+  }
+}
+
+#compo_photo {
+  width: 100%;
+  vertical-align: top;
+}
+
+#RecoConInfo_ongen_p {
+  padding: 11px 11px 22px 11px;
+}
+#RecoConInfo_ongen_p > p {
+  text-align: justify;
+}
+@media (min-width: 420px) {
+  #RecoConInfo_ongen_p > p {
+    text-align: center;
+  }
+}
+
+#RecoConInfo_ongen {
+  background-color: white;
+}
+@media (min-width: 420px) {
+  #RecoConInfo_ongen {
+    padding: 0 27vw 44px 27vw;
+  }
+}
+
+#table_kizai {
+  width: 60vw;
+}
+@media (min-width: 420px) {
+  #table_kizai {
+    width: 46vw;
+  }
+}
+
+#table_kizai tbody th {
+  font-size: var(--main-font-size_small);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  padding: 5.5px 0 5.5px 0;
+  color: black;
+}
+
+#table_kizai tbody td {
+  font-size: var(--main-font-size_small);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 600;
+  text-align: left;
+  padding: 5.5px 0 5.5px 5.5px;
+  color: black;
+}
+
+/* お知らせ  要素------------------------------------------------------------  */
+/* お知らせ  class------------------------------------------------------------  */
+.news {
+  background-color: white;
+  border-width: 0 0 0.5px 0;
+  border-style: dashed;
+  border-color: #DDD;
+  padding: 11px 11px 22px 11px;
+}
+@media (min-width: 420px) {
+  .news {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 22px 28vw 22px 28vw;
+  }
+  .news h3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0 22px;
+    margin-right: 22px;
+    border-width: 0 0.5px 0 0.5px;
+    border-style: solid;
+    border-color: var(--main-color-perple);
+  }
+}
+
+.news_date {
+  font-size: var(--main-font-size_p);
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 600;
+  color: var(--main-color-perple);
+}
+
+/* お知らせ  id------------------------------------------------------------  */
+#news_underSpace {
+  background-color: white;
+  padding: 0px 0px 22px 0px;
+}
+
+/* 予約券・当日券の購入  要素------------------------------------------------------------  */
+/* 予約券・当日券の購入  class------------------------------------------------------------  */
+.chair {
+  height: 27.5px;
+}
+
+.chair_num {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 5.5px 4px;
+}
+
+.A, .B, .C, .D {
+  width: 20px;
+  height: 20px;
+  font-size: 13px;
+  font-family: "M PLUS 1", sans-serif;
+  font-weight: 600;
+  line-height: auto;
+  margin: 12px 5.5px 0 5.5px;
+  border: solid 0.1px #c0c0c0;
+  border-radius: 10px;
+  color: #c0c0c0;
+}
+
+.AB_CD {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+.chairsA {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.chairsB {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.chairsC {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.chairsD {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.chairs_numA {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.chairs_numB {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.chairs_numC {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.chairs_numD {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.spaceAB, .spaceCD {
+  width: 11px;
+}
+
+.alpha_chairs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.speaker {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#speaker {
+  height: 22px;
+  margin: 5.5px auto 11px;
+}
+
+/* 予約券・当日券の購入  id------------------------------------------------------------  */
+#ticket {
+  margin: 0 auto;
+}
+
+#jikai {
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  margin: 22px 5vw;
+  padding: 11px;
+}
+@media (min-width: 420px) {
+  #jikai {
+    margin: 22px 17vw;
+    padding: 22px;
+  }
+}
+
+.littleTitle_perple {
+  background-color: white;
+  width: 70px;
+  margin: 5.5px auto 0 auto;
+  padding: 1.8px;
+  border: solid 0.1px var(--main-color-water);
+  border-radius: 11px;
+}
+@media (min-width: 420px) {
+  .littleTitle_perple {
+    width: 70px;
+    margin: 5.5px auto 0 auto;
+    padding: 1.8px;
+    border-radius: 11.5px;
+  }
+}
+
+#jikai_CS {
+  padding: 5.5px 0 0 0;
+}
+
+#jikai_time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#jikai_time > h3 {
+  margin: 0 5.5px;
+}
+
+#zaseki {
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  margin: 22px 5vw;
+  padding: 11px;
+}
+@media (min-width: 420px) {
+  #zaseki {
+    margin: 22px 17vw;
+    padding: 22px;
+  }
+}
+
+#zaseki_p {
+  margin: 5.5px auto 0px auto;
+}
+
+#zaseki_seat {
+  padding: 5.5px 0 0 0;
+}
+
+#tojitsu {
+  background-color: white;
+  padding: 11px 11px 22px 11px;
+  margin: 0 0 44px 0;
+  border-width: 0.5px 0 0.5px 0;
+  border-style: solid;
+  border-color: var(--main-color-water);
+}
+@media (min-width: 420px) {
+  #tojitsu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 11px 17vw 11px 17vw;
+  }
+}
+#tojitsu > h2 {
+  margin-right: 22px;
+  border-width: 0 0.5px 0 0.5px;
+  border-style: solid;
+  border-color: var(--main-color-glay);
+}
+@media (min-width: 420px) {
+  #tojitsu > h2 {
+    font-size: var(--main-font-size_h3);
+    width: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+#tojitsu > div {
+  width: 100%;
+}
+#tojitsu > div > h3 {
+  text-align: right;
+}
+
+/* アクセス  要素------------------------------------------------------------  */
+/* アクセス  class------------------------------------------------------------  */
+/* アクセス  id------------------------------------------------------------  */
+#Access_place {
+  background-color: white;
+  padding: 11px;
+}
+@media (min-width: 420px) {
+  #Access_place {
+    padding: 11px 28vw 11px 28vw;
+  }
+}
+
+#access_iframe_div {
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: solid 0.5px #DDD;
+}
+
+#access_iframe {
+  width: 100%;
+  height: 100vw;
+}
+@media (min-width: 420px) {
+  #access_iframe {
+    height: 28vw;
+  }
+}
+
+#access_p {
+  padding: 11px 0 22px 0;
+}
+
+/* レココンメンバーズクラブ  要素------------------------------------------------------------  */
+/* レココンメンバーズクラブ  class------------------------------------------------------------  */
+@media (min-width: 420px) {
+  .MClub_message {
+    padding-right: 27vw;
+    padding-left: 27vw;
+  }
+}
+/* レココンメンバーズクラブ  id------------------------------------------------------------  */
+/* ご感想・ご要望  class------------------------------------------------------------  */
+/* ご感想・ご要望  id------------------------------------------------------------  */
+#Request {
+  background-color: white;
+  padding: 0 0 22px 0;
+}
+
+#request_textarea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 22px 11px 11px 11px;
+}
+@media (min-width: 420px) {
+  #request_textarea {
+    padding: 22px 27vw 11px 27vw;
+  }
+}
+
+#input_request {
+  width: 100%;
+  height: 27vw;
+  border-width: 0.25px;
+  border-style: solid;
+  border-radius: 3px;
+  border-color: #c0c0c0;
+}
+
+#requestLength {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0px 11px 22px 11px;
+}
+
+/* ご感想・ご要望  要素------------------------------------------------------------  */
+/*# sourceMappingURL=recocon.css.map */
